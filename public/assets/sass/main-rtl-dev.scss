@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+$primary: #009dff;
+$light: #edf1f1;
+$wihte: #ffffff;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+body {
+  position: relative;
+  font-family: 'Tajawal', sans-serif !important;
+}
+input::placeholder,
+label {
+  text-transform: capitalize;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+section,
+.container,
+.row {
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+.img-cover {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+a {
+  text-decoration: none !important;
+}
+.btn {
+  box-shadow: none !important;
+  text-transform: capitalize;
+}
+.btn-primary {
+  color: $wihte !important;
+  &:hover {
+    background-color: transparent;
+    color: $primary !important;
+  }
+}
+.btn-outline-primary {
+  &:hover {
+    color: $wihte !important;
+  }
+}
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+.text-1 {
+  font-size: 15px;
+}
+.text-2 {
+  font-size: 17px;
+}
+.pointer {
+  cursor: pointer;
+}
+.rounded-5 {
+  border-radius: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+.h1 {
+  font-size: 48px;
+  line-height: 74px;
+}
+
+.h2 {
+  font-size: 44px;
+  line-height: 64px;
+}
+
+.h3 {
+  font-size: 36px;
+  line-height: 56px;
+}
+
+.h4 {
+  font-size: 32px;
+  line-height: 56px;
+}
+
+.h5 {
+  font-size: 22px;
+  line-height: 48px;
+}
+
+.h6 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  .h1 {
+    font-size: 44px;
+    line-height: 64px;
+  }
+
+  .h2 {
+    font-size: 38px;
+    line-height: 54px;
+  }
+
+  .h3 {
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .h4 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .h5 {
+    font-size: 20px;
+    line-height: 36px;
+  }
+
+  .h6 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.navbar {
+  padding: 14px 0px;
+  background: $wihte;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+.navbar .navbar-nav .nav-item {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover,
+.navbar .navbar-nav .nav-item .nav-link.active {
+  color: $primary;
+}
+.logo {
+  width: 174px !important;
+  height: 33px;
+}
+.home_header {
+  height: 85vh;
+  width: 100%;
+  background: url("../img/doctor-cover.webp") center fixed;
+  background-size: cover;
+}
+.header_contact {
+  min-height: 70vh;
+  .header_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (min-width: 0px) and (max-width: 576px) {
+      text-align: center;
+    }
+  }
+}
+.header_patient {
+  height: 75vh;
+}
+.header_doctor {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  background: url("../img/doctor-cover.webp") center fixed;
+  background-size: cover;
+  .container {
+    z-index: 2;
+  }
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    z-index: 1;
+  }
+}
+.sercives_patient .card {
+  transition: all 0.4s ease;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 0 4px 12px 0 rgba(12, 0, 4, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.sercives_doctor .img,
+.sercives_patient .img {
+  max-height: 500px;
+  overflow: hidden;
+}
+.doctors .card-avatar img {
+  width: 130px !important;
+  height: 130px !important;
+}
+.doctors .socail__item a {
+  transition: all 0.4s linear;
+  color: $dark;
+  &:hover {
+    color: $primary;
+  }
+}
+
+.swiper {
+  width: 100%;
+}
+.swiper-pagination-bullet-active {
+  background-color: $primary;
+}
+.avatar-lg {
+  width: 120px !important;
+  height: 120px !important;
+}
+.avatar {
+  width: 80px !important;
+  height: 80px !important;
+}
+.avatar-sm {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.upload_img {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  &.add_clinic {
+    width: 180px;
+    height: 180px;
+  }
+  cursor: pointer;
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+  }
+  span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+#choose {
+  .choose_type {
+    position: relative;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #009dff;
+    margin: auto;
+    cursor: pointer;
+    .text {
+      position: absolute;
+      bottom: 10%;
+      left: 0px;
+      width: 100%;
+    }
+  }
+}
+
+.features_patient {
+  padding-top: 140px;
+  padding-bottom: 60px;
+  @media (max-width: 768px) {
+    padding-top: 180px;
+  }
+  @media (max-width: 576px) {
+    padding-top: 260px;
+  }
+  .card a {
+    transition: all 0.4s linear;
+    display: inline-block;
+    &:hover {
+      transform: translateX(8px);
+    }
+  }
+}
+
+.app_phone .download_app {
+  border-radius: 40px 40px 0px 0px;
+}
+.nav-tabs .nav-link {
+  color: $dark;
+}
+.nav-tabs .nav-link.active {
+  color: $primary;
+  border-bottom: 2px solid $primary;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: $wihte;
+}
+
+.time {
+  .swiper-slide {
+    min-height: 150px;
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    .date_head {
+      font-size: 14px;
+    }
+    &.disabled .date_head {
+      background-color: #009dff!important;
+      opacity: .65;
+    }
+    &.disabled .btn-danger {
+      background-color: #dc3545 !important;
+      pointer-events: none;
+      opacity: .65;
+    }
+    
+  }
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 30px;
+  }
+  .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    display: none !important;
+  }
+  .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    display: none !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 93%;
+  }
+}
+.star_fill {
+  color: rgb(248, 224, 3);
+}
+.reviews .review_content {
+  min-height: 220px;
+  max-height: 600px;
+  overflow: auto;
+}
+.news .card {
+  &:hover img {
+    transform: scale(1.1);
+  }
+  img {
+    transition: all 0.4s linear;
+  }
+}
+.first_aid .card {
+  img {
+    transition: all 0.4s ease-in-out;
+  }
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+#calendar {
+  .calendar-year .icon-button {
+    display: none !important;
+  }
+  .type-visit-home,
+  .event-bullet-visit-home {
+    background: $warning;
+  }
+  .type-visit-clinic,
+  .event-bullet-visit-clinic {
+    background: $primary;
+  }
+  .type-video-call,
+  .event-bullet-video-call {
+    background: $success;
+  }
+}
+
+.profile_patient {
+  min-height: 700px;
+}

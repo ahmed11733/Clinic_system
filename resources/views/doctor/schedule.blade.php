@@ -1,0 +1,236 @@
+@extends('layouts.fixed')
+@section('content')
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-light bg-wihte">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./img/logo.png" class="logo" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="{{url('/doctorHome')}}">home</a>
+        </li>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/profile')}}">my profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{url('/schedule')}}">schedule</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/about')}}">about us </a>
+        </li>
+    </ul>
+
+    <form action="{{url('DRlogout')}}" method="post">
+        @csrf
+        <div class="logout ms-auto">
+            <button class="btn btn-danger">logout</button>
+        </div>
+   </form>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="week_graph container mt-5">
+    <h2 class="h2">week graph</h2>
+    <canvas id="myChart" style="width: 100%; min-height: 350px;"></canvas>
+
+  </div>
+
+  <div class="week_calendar container mt-5">
+    <h2 class="h2">week calendar</h2>
+    <div id="calendar" class="card shadow-sm"></div>
+  </div>
+
+  <div class="call_patient container mt-5 py-5">
+    <div class="call_patient-head text-white text-center">
+      <h5 class="h5 d-inline-block bg-primary px-5 rounded-5" id="date-title"></h5>
+    </div>
+    <div class="row justify-content-center px-2 mt-4">
+      <div class="col-md-7 mb-2 border py-2 shadow-sm rounded-5 d-flex">
+        <div class="d-flex flex-wrap align-items-center">
+          <img src="./img/doctor-team (1).png" class="avatar rounded-5 me-2 mb-2" alt="">
+          <div>
+            <h6 class="mb-0 fs-5 text-capitalize">ahmed eldeep</h6>
+            <p class="text-2 mb-1 text-capitalize">home visit</p>
+            <p class="text-2 mb-0 ">05:00 pm</p>
+          </div>
+        </div>
+        <div class="ms-auto d-flex align-items-center p-2">
+          <button class="btn btn-success mb-2 d-block m-auto"><i class="fa-solid fa-phone"></i></button>
+        </div>
+      </div>
+      <div class="col-md-7 mb-3 border py-2 shadow-sm rounded-5 d-flex">
+        <div class="d-flex flex-wrap align-items-center">
+          <img src="./img/doctor-team (1).png" class="avatar rounded-5 me-2 mb-2" alt="">
+          <div>
+            <h6 class="mb-0 fs-5 text-capitalize">ahmed eldeep</h6>
+            <p class="text-2 mb-1 text-capitalize">home visit</p>
+            <p class="text-2 mb-0 ">05:00 pm</p>
+          </div>
+        </div>
+        <div class="ms-auto d-flex align-items-center p-2">
+          <button class="btn btn-success mb-2 d-block m-auto"><i class="fa-solid fa-phone"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="register_patient" tabindex="-1" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header">
+          <div class="modal-title">
+            <img src="./img/logo.png" alt="" class="logo">
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 class="pointer" data-bs-toggle="modal" data-bs-target="#choose">
+            <i class="fa-solid fa-angle-left me-2"></i>back
+          </h5>
+          <form action="">
+            <div class="upload_img rounded-circle  m-auto mb-4">
+              <input type="file" name="file" id="file_upload">
+              <span class="bg-light text-center py-4">
+                <i class="fa-solid fa-camera fs-1 text-wite"></i>
+                <p>add photo</p>
+              </span>
+            </div>
+            <div class="row py-3">
+              <div class="col-md-6 pe-md-1 ">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="first name">
+                  <label>first name *</label>
+                </div>
+              </div>
+              <div class="col-md-6 ps-md-1">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="last name">
+                  <label>last name *</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="phone number">
+              <label>phone number *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com">
+              <label>Email address *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="password">
+              <label>password *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" value="2018-07-23" min="1997-01-01" max="2030-12-31"
+                placeholder="dd-mm-yyyy">
+              <label for="floatingInput">Birth Date</label>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">sign in</button>
+            <p class="my-3 text-center">
+              i have account <a class="text-capitalize" data-bs-toggle="modal" href="#login" role="button">login</a>
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mt-4">
+          <img src="./img/logo.png" class="logo" alt="">
+          <p class="mt-3">Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
+        </div>
+        <div class="col-md-2 mt-4">
+          <ul class="list-unstyled">
+            <h5 class="mb-4">Navigation</h5>
+            <li class="mb-2 text-capitalize">
+              <a href="/" class="text-dark d-block">home</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./profileDoctor.html" class="text-dark d-block">my profile</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./schedule.html" class="text-dark d-block">Schedule</a>
+            </li>
+
+            <li class="mb-2 text-capitalize">
+              <a href="./about.html" class="text-dark d-block">about us</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./contact.html" class="text-dark d-block">contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-2 mt-4">
+          <ul class="list-unstyled">
+            <h5 class="mb-4 text-capitalize">are you patient?</h5>
+            <li class="mb-2 text-capitalize">
+
+              <a href="/" class="text-dark d-block" data-bs-toggle="modal" data-bs-target="#register_patient">join
+                now</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md-4 mt-4">
+          <h5 class="mb-4 text-capitalize">download & follow</h5>
+          <div class="download_link">
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-google-play"></i>
+              google play
+            </a>
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-apple fs-3"></i>
+              app store
+            </a>
+          </div>
+          <h6 class="fs-5 text-capitalize">social media:</h6>
+          <ul class="socail  d-flex list-unstyled">
+            <li class="socail__item me-3">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </li>
+
+            <li class="socail__item me-2 ">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script src="./js/evo-calendar.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/schedule.js "></script>
+
+</body>
+
+
+</html>
+
+@endsection

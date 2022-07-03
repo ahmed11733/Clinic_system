@@ -1,0 +1,347 @@
+@extends('layouts.fixed')
+@section('content')
+
+
+  <nav class="navbar navbar-expand-md navbar-light bg-wihte ">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src={{asset('assets/img/logo.png')}} alt="" class="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{url('/')}}">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url('/about')}}">about us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url('/contact')}}">contact</a>
+          </li>
+        </ul>
+        <div class="auth ms-auto">
+          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#login">login</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#choose">register</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="vh-75 overflow-hidden">
+    <img src={{asset('assets/img/medical_cover.jpg')}} class="img-cover" alt="" srcset="">
+  </header>
+
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h2>our company</h2>
+          <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quae, facilis, sunt modi
+            eveniet sit, cupiditate totam corporis facere delectus nostrum animi aliquam esse temporibus libero
+            obcaecati deserunt impedit corrupti veritatis. Explicabo veniam odio quibusdam incidunt exercitationem nulla
+            similique, modi inventore, deserunt praesentium iure officiis ratione quasi. Est, dolorum nihil.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-4">
+          <h4>our team</h4>
+          <p class="text-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vero. Iure ab quod qui
+            alias illum impedit fugit in odit consequuntur hic voluptates, ducimus consequatur quas reprehenderit itaque
+            nostrum eius.</p>
+        </div>
+        <div class="col-md-4 mt-4">
+          <h4>our team</h4>
+          <p class="text-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vero. Iure ab quod qui
+            alias illum impedit fugit in odit consequuntur hic voluptates, ducimus consequatur quas reprehenderit itaque
+            nostrum eius.</p>
+        </div>
+        <div class="col-md-4 mt-4">
+          <h4>our team</h4>
+          <p class="text-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vero. Iure ab quod qui
+            alias illum impedit fugit in odit consequuntur hic voluptates, ducimus consequatur quas reprehenderit itaque
+            nostrum eius.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#212529" fill-opacity="1"
+      d="M0,288L120,256C240,224,480,160,720,149.3C960,139,1200,181,1320,202.7L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+      style="user-select: auto;"></path>
+  </svg>
+  <section class="testimonial bg-dark">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-md-7 text-center wow animate__bounceInDown" data-wow-duration="1s" data-wow-offset="200">
+          <h2 class="fs-1 text-white">Kinds Words From Customers</h2>
+        </div>
+      </div>
+      <div class="swiper mySwiper py-5 wow animate__bounceInUp" data-wow-duration="1s" data-wow-offset="200">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide  ">
+            <div class="card p-2">
+              <div class="card-body">
+                <div class="icon display-3 text-primary">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+                <p class="card-text lead">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+              <div class="p-2 d-flex align-items-center">
+                <img src={{asset('assets/img/doctor-team (1).png')}} class="avatar rounded-circle" alt="">
+                <div class="ms-2">
+                  <h6 class="mb-0 fs-5 text-capitalize">ahmed eldeep</h6>
+                  <p class="m-0 fs-5 fw-light text-capitalize">doctor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide  ">
+            <div class="card p-2">
+              <div class="card-body">
+                <div class="icon display-3 text-primary">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+                <p class="card-text lead">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+              <div class="p-2 d-flex align-items-center">
+                <img src={{asset('assets/img/doctor-team (1).png')}} class="avatar rounded-circle" alt="">
+                <div class="ms-2">
+                  <h6 class="mb-0 fs-5 text-capitalize">ahmed eldeep</h6>
+                  <p class="m-0 fs-5 fw-light text-capitalize">doctor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide  ">
+            <div class="card p-2">
+              <div class="card-body">
+                <div class="icon display-3 text-primary">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+                <p class="card-text lead">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              </div>
+              <div class="p-2 d-flex align-items-center">
+                <img src={{asset('assets/img/doctor-team (1).png')}} class="avatar rounded-circle" alt="">
+                <div class="ms-2">
+                  <h6 class="mb-0 fs-5 text-capitalize">ahmed eldeep</h6>
+                  <p class="m-0 fs-5 fw-light text-capitalize">doctor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#212529" fill-opacity="1"
+      d="M0,128L120,144C240,160,480,192,720,176C960,160,1200,96,1320,64L1440,32L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
+      style="user-select: auto;"></path>
+  </svg>
+
+
+  <div class="modal fade" id="choose" tabindex="-1" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header">
+          <div class="modal-title">
+            <img src={{asset('assets/img/logo.png')}} alt="" class="logo">
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="choose_type" data-bs-toggle="modal" data-bs-target="#register_doctor">
+                <img src={{asset('assets/img/Wear a Mask.png')}} class="w-100" alt="">
+                <p class="text p-2 bg-secondary text-white rounded text-center">i am doctor</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="choose_type" data-bs-toggle="modal" data-bs-target="#register_patient">
+                <img src={{asset('assets/img/Hello.png')}} class="w-100" alt="">
+                <p class="text p-2 bg-secondary text-white rounded text-center">i am patient</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="login" tabindex="-1" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header">
+          <div class="modal-title">
+            <img src={{asset('assets/img/logo.png')}} alt="" class="logo">
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <h4 class="h4 mb-1 text-capitalize">Welcome</h4>
+          <form action="" class="mt-5">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com">
+              <label>Email address *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="password">
+              <label>password *</label>
+            </div>
+            <div class="mb-3 text-center">
+              <a href="/" class="text-capitalize">forget your password?</a>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">sign in</button>
+            <p class="my-3 text-center">
+              don`t have account?<a class="text-capitalize" data-bs-toggle="modal" href="#choose" role="button"> create
+                account</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="register_doctor" tabindex="-1" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header">
+          <div class="modal-title">
+            <img src={{asset('assets/img/logo.png')}} alt="" class="logo">
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 class="pointer" data-bs-toggle="modal" data-bs-target="#choose">
+            <i class="fa-solid fa-angle-left me-2"></i>back
+          </h5>
+          <form action="">
+            <div class="upload_img rounded-circle  m-auto mb-4">
+              <input type="file" name="image" id="file_upload">
+              <span class="bg-light text-center py-4">
+                <i class="fa-solid fa-camera fs-1 text-wite"></i>
+                <p>add photo</p>
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pe-md-1 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="first name *">
+                  <label>first name *</label>
+                </div>
+              </div>
+              <div class="col-md-6 ps-md-1 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="name@example.com">
+                  <label>last name *</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="specialty" list="specialty" placeholder="specialty">
+              <datalist id="specialty">
+                <option value="text">specialty</option>
+              </datalist>
+              <label>specialty *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="phone number">
+              <label>phone number *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com">
+              <label>Email address *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="password">
+              <label>password *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" placeholder="enter mobile number">
+              <label for="floatingInput">Birth Date</label>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">sign in</button>
+            <p class="my-3 text-center">
+              i have account <a class="text-capitalize" data-bs-toggle="modal" href="#login" role="button">login</a>
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <footer class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mt-4">
+          <img src={{asset('assets/img/logo.png')}} class="logo" alt="">
+          <p class="mt-3">Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">login</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#choose">sign up</button>
+        </div>
+        <div class="col-md-2 mt-4">
+          <ul class="list-unstyled">
+            <h5 class="mb-4">Navigation</h5>
+            <li class="mb-2 text-capitalize">
+              <a href="/" class="text-dark d-block">home</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="/" class="text-dark d-block">about us</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="/" class="text-dark d-block">contact us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mt-4 ms-auto">
+          <h5 class="mb-4 text-capitalize">download & follow</h5>
+          <div class="download_link">
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-google-play"></i>
+              google play
+            </a>
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-apple fs-3"></i>
+              app store
+            </a>
+          </div>
+          <h6 class="fs-5 text-capitalize">socail media:</h6>
+          <ul class="socail  d-flex list-unstyled">
+            <li class="socail__item me-3">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </li>
+
+            <li class="socail__item me-2 ">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  @endsection

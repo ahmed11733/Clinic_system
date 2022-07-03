@@ -1,0 +1,520 @@
+@extends('layouts.fixed')
+@section('content')
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-wihte">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="./img/logo.png" class="logo" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{url('userHome')}}">home</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/userProfile')}}">my profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('search')}}">search a doctor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('firstAid')}}">first aid </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/showMedicalHistory')}}">medical history</a>
+        </li>
+        </ul>
+      
+        <form action="{{url('userlogout')}}" method="post">
+          @csrf
+      <div class="logout ms-auto">
+          <button class="btn btn-danger">logout</button>
+      </div>
+  </form>
+
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-4">
+    <div class="container-xl">
+      <div class="head">
+        <h2 class="fs-1 text-capitalize">
+          Book With The Best Doctors In Egypt
+        </h2>
+        <p class="fs-5"><span class="text-primary">1000</span> doctors and <span class="text-primary">150</span>
+          specialist</p>
+      </div>
+        <!-- card and form search doctor -->
+      <div class="card shadow-sm p-4 rounded-5">
+        <h6 class="h6 mb-2 text-capitalize">search a doctor</h6>
+        <form action="" class="row gx-1 gy-2 pb-1">
+          <div class="col-12 col-sm-6 col-md">
+            <div class="form-floating">
+              <select class="form-select" id="floatingSelect">
+                <option selected>Open select</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <label for="floatingInput">specialty </label>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md">
+            <div class="form-floating">
+              <input class="form-control" list="city" placeholder="area">
+              <datalist id="area">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+              </datalist>
+              <label for="floatingInput">choose area</label>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md">
+            <div class="form-floating">
+              <input class="form-control" list="city" placeholder="city">
+              <datalist id="city">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+              </datalist>
+              <label for="floatingInput">choose city</label>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" placeholder="doctor name">
+              <label>doctor name</label>
+            </div>
+          </div>
+          <div class="col-12 col-md-2">
+            <button class="btn btn-primary btn-lg w-100 h-100">search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="main py-4 overflow-visible">
+    <div class="container-xl overflow-visible">
+      <div class="row g-3 overflow-visible">
+        <!-- filter aside -->
+        <div class="col-xs-12 col-sm-4 col-lg-3 overflow-visible">
+          <div class="accordion overflow-hidden rounded-5 shadow-sm d-none d-sm-block sticky-top">
+            <div class="filter_title bg-primary p-3">
+              <p class="fs-5 m-0 text-white">choose your search</p>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fs-5 text-capitalize" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#gender" aria-expanded="true">
+                  <i class="fa-solid fa-venus-mars"></i>
+                  <span class="ms-1">gender</span>
+                </button>
+              </h2>
+              <div id="gender" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="doctor">
+                    <label class="form-check-label" for="doctor">doctor</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="famale">
+                    <label class="form-check-label" for="famale">famale liver</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fs-5 text-capitalize" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#price" aria-expanded="true">
+                  <i class="fa-solid fa-money-bills"></i>
+                  <span class="ms-1">price</span>
+                </button>
+              </h2>
+              <div id="price" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="any">
+                    <label class="form-check-label" for="any">any</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="less">
+                    <label class="form-check-label" for="less">less then 50</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-50">
+                    <label class="form-check-label" for="from-50">from 50 to 100 </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-100">
+                    <label class="form-check-label" for="from-100">from 100 to 200</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-200">
+                    <label class="form-check-label" for="from-200">from 200 to 300</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="greater">
+                    <label class="form-check-label" for="greater">greater then 300</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg w-100 d-flex d-sm-none" data-bs-toggle="modal"
+            data-bs-target="#filter_model" data-bs-whatever="@mdo">open filter</button>
+        </div>
+        <!-- card doctor -->
+        <div class="col-xs-12 col-sm-8 col-lg-9">
+          <div class="card rounded-5 shadow-sm p-2 mb-3">
+            <a href="./doctor.html" class="stretched-link"></a>
+            <div class="row gx-3">
+
+              <!-- doctor info -->
+                  
+                        
+              <div class="col-md-12 col-lg-7 ps-4 pt-3">
+                <div class="d-flex align-items-center">
+                  
+   @foreach ($data as $item)
+                  <div class="ms-2">
+              
+                {{$item->mobile_number}}
+                    <h6 class="mb-0 fs-5 text-capitalize">{{$item->name}}</h6>
+                    <small class="mb-0"> {{$item->governorate}}</small>
+                  </div>
+                </div>
+                <p class="text-1 mt-3"> </p>
+                <div class="rating fs-5 mt-3"> 
+                   <i class="fa-solid fa-star"></i>
+                </div>
+                <ul class="list-unstyled mt-4 d-flex flex-column">
+                  <li class="d-flex align-items-center mb-3">
+                    <span class="fs-5 me-2">
+                      <i class="fa-solid fa-stethoscope"></i>
+                    </span>
+                    {{$item->speciality}}                  </li>
+                  <li class="d-flex align-items-center mb-3">
+                    <span class="fs-5 me-2">
+                      <i class="fa-solid fa-map-location"></i>
+                    </span>
+                    El-Maadi : tarek abo alnoor
+                  </li>
+                  <li class="d-flex align-items-center mb-3">
+                    <span class="fs-5 me-2">
+                      <i class="fa-solid fa-money-bill-wave"></i>
+                    </span>
+                    {{$item->examinationPrice}}             </li>
+                  <li class="d-flex align-items-center mb-3">
+                    <span class="fs-5 me-2">
+                      <i class="fa-solid fa-phone"></i>
+                    </span>
+                    {{$item->mobile_number}}                  </li>
+                </ul>
+              </div>
+            
+               @endforeach 
+              <!-- choose time -->
+              <div class="col-md-12 col-lg-5 d-flex align-items-center">
+                <div class="swiper time py-5">
+                  <div class="swiper-wrapper text-center">
+
+                    <div class="swiper-slide disabled rounded-3 bg-light">
+                      <div class="date_head bg-primary p-2 text-white ">today</div>
+                      <small class="py-4 px-1">from 10pm to 11pm</small>
+                      <a href="./reservation.html" class="btn btn-danger disabled btn-sm stretched-link">book</a>
+                    </div>
+
+                    <div class="swiper-slide rounded-3 bg-light">
+                      <div class="date_head bg-primary p-2 text-white ">tomorrow</div>
+                      <small class="py-4 px-1">from 10pm to 11pm</small>
+                      <a href="./reservation.html" class="btn btn-danger btn-sm stretched-link">book</a>
+                    </div>
+                    <div class="swiper-slide rounded-3 bg-light">
+                      <div class="date_head bg-primary p-2 text-white ">sat 25/4</div>
+                      <small class="py-4 px-1 text-1">from 10 pm to 11 pm</small>
+                      <a href="./reservation.html" class="btn btn-danger btn-sm stretched-link">book</a>
+                    </div>
+                    <div class="swiper-slide rounded-3 bg-light">
+                      <div class="date_head bg-primary p-2 text-white ">sat 25/4</div>
+                      <small class="py-4 px-1 text-1">from 10 pm to 11 pm</small>
+                      <a class="btn btn-danger btn-sm">book</a>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- modal filter -->
+  <div class="modal fade" id="filter_model" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">choose your search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <!-- start filter -->
+          <div class="accordion">
+            <div class="filter_title bg-primary p-3">
+              <p class="fs-5 m-0 text-white">choose your search</p>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fs-5 text-capitalize" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#gender" aria-expanded="true">
+                  <i class="fa-solid fa-venus-mars"></i>
+                  <span class="ms-1">gender</span>
+                </button>
+              </h2>
+              <div id="gender" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="doctor">
+                    <label class="form-check-label" for="doctor">doctor</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="famale">
+                    <label class="form-check-label" for="famale">famale liver</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button fs-5 text-capitalize" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#price" aria-expanded="true">
+                  <i class="fa-solid fa-money-bills"></i>
+                  <span class="ms-1">price</span>
+                </button>
+              </h2>
+              <div id="price" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="any">
+                    <label class="form-check-label" for="any">any</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="less">
+                    <label class="form-check-label" for="less">less then 50</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-50">
+                    <label class="form-check-label" for="from-50">from 50 to 100 </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-100">
+                    <label class="form-check-label" for="from-100">from 100 to 200</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="from-200">
+                    <label class="form-check-label" for="from-200">from 200 to 300</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="price" value="" id="greater">
+                    <label class="form-check-label" for="greater">greater then 300</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- modal register doctor -->
+  <div class="modal fade" id="register_doctor" tabindex="-1" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header">
+          <div class="modal-title">
+            <img src="./img/logo.png" alt="" class="logo">
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 class="pointer" data-bs-toggle="modal" data-bs-target="#choose">
+            <i class="fa-solid fa-angle-left me-2"></i>back
+          </h5>
+          <form action="">
+            <div class="upload_img rounded-circle  m-auto mb-4">
+              <input type="file" name="image" id="file_upload">
+              <span class="bg-light text-center py-4">
+                <i class="fa-solid fa-camera fs-1 text-wite"></i>
+                <p>add photo</p>
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pe-md-1 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="first name *">
+                  <label>first name *</label>
+                </div>
+              </div>
+              <div class="col-md-6 ps-md-1 mb-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="name@example.com">
+                  <label>last name *</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="specialty" list="specialty" placeholder="specialty">
+              <datalist id="specialty">
+                <option value="text">specialty</option>
+              </datalist>
+              <label>specialty *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="phone number">
+              <label>phone number *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" placeholder="name@example.com">
+              <label>Email address *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" placeholder="password">
+              <label>password *</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control" placeholder="enter mobile number">
+              <label for="floatingInput">Birth Date</label>
+            </div>
+            <button class="btn btn-primary btn-lg w-100">sign in</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mt-4">
+          <img src="./img/logo.png" class="logo" alt="">
+          <p class="mt-3">Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
+        </div>
+        <div class="col-md-2 mt-4">
+          <ul class="list-unstyled">
+            <h5 class="mb-4">Navigation</h5>
+            <li class="mb-2 text-capitalize">
+              <a href="{{url('/userHome')}}" class="text-dark d-block">home</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="{{url('/userProfile')}}" class="text-dark d-block">my profile</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./searchDoctor.html" class="text-dark d-block">Search A Doctor</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./firstAid.html" class="text-dark d-block">First Aid</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./about.html" class="text-dark d-block">about us</a>
+            </li>
+            <li class="mb-2 text-capitalize">
+              <a href="./contact.html" class="text-dark d-block">contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-2 mt-4">
+          <ul class="list-unstyled">
+            <h5 class="mb-4 text-capitalize">are you doctor?</h5>
+            <li class="mb-2 text-capitalize">
+
+              <a href="/" class="text-dark d-block" data-bs-toggle="modal" data-bs-target="#register_doctor">join
+                now</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md-4 mt-4">
+          <h5 class="mb-4 text-capitalize">download & follow</h5>
+          <div class="download_link">
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-google-play"></i>
+              google play
+            </a>
+            <a href="/" class="btn btn-dark btn-lg mb-3">
+              <i class="fa-brands fa-apple fs-3"></i>
+              app store
+            </a>
+          </div>
+          <h6 class="fs-5 text-capitalize">social media:</h6>
+          <ul class="socail  d-flex list-unstyled">
+            <li class="socail__item me-3">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </li>
+
+            <li class="socail__item me-2 ">
+              <a class="d-block fs-2" href="/">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+
+  <script>
+    let swiper = new Swiper(".time", {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+  </script>
+</body>
+
+</html>
+@endsection
