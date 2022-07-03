@@ -198,15 +198,8 @@ class drapicontroller extends Controller
             // Firstly validate
             $data= $request->validate
             ([
-                // 'name'                  => 'required|string',
-                // 'password'              => 'required|string',
-
-                // 'mobile_number'         => 'required|string',
+  
                 'photo'                 => 'required',
-
-                // 'latitude'              => '',
-                // 'longitude'             => '',
-     
                 'about'                 => 'required|string',
                 'country'               => 'required|string',
                 'year'                  => 'required|string',
@@ -219,25 +212,8 @@ class drapicontroller extends Controller
             ]);
 
 
-            // if($request->has('photo')){
-                
-            //     $photo = $request->photo;
-            //     $newPhoto = time().$photo->getClientOriginalName();
-            //     $photo->move('uploads/doctors_profiles',$newPhoto);
-            //     $doctor->photo = 'uploads/doctors_profiles/'.$newPhoto;
-            // }
 
-            // Secondly Update
-            // $doctor->name = $request->name;
-            // $doctor->password =  bcrypt($request->password);
-
-            // $doctor->mobile_number = $request->mobile_number;
             $doctor->photo = $request->photo;
-
-
-            // $doctor->latitude = $request->latitude;
-            // $doctor->longitude = $request->longitude;
-
             $doctor->about = $request->about;
             $doctor->country = $request->country;
             $doctor->year = $request->year;

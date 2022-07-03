@@ -125,7 +125,7 @@ return view('user.searchdoctor',['data'=>$data]);
         return view('user.home',[
             'user' => $user,
             'doctor'=>$doctor,
-       's'=>$mydoctor
+             's'=>$mydoctor
         ]);
 
     }

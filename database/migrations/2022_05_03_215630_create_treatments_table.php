@@ -18,7 +18,7 @@ class CreateTreatmentsTable extends Migration
             $table->foreignId('patient_id')->references('id')->on('users');
             $table->foreignId('doctor_id')->references('id')->on('doctors');
             $table->string('treatment_content');
-            $table->date('treatment_date');
+            $table->string('treatment_date');
             $table->timestamps();
         });
     }

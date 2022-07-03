@@ -292,6 +292,8 @@
                 <input type="text" class="form-control" name="examinationPrice" placeholder="Detection price(eg)">
                 <label>Detection price(eg)</label>
               </div>
+
+
               <div class="mb-3">
                 <input type="text" name="latitude" id="lat" hidden>
                 <input type="text" name="longitude" id="long" hidden>
@@ -299,6 +301,8 @@
                   location
                 </button>
               </div>
+
+
 
               <div class="footer_form mt-3">
                 <button class="btn btn-primary btn-lg w-100">sign in</button>

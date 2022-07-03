@@ -199,19 +199,8 @@ class userapicontroller extends Controller
         ]);
 
 
-        // if($request->has('photo')){
-        //     $photo = $request->photo;
-        //     $newPhoto = time().$photo->getClientOriginalName();
-        //     $photo->move('uploads/users_profiles',$newPhoto);
-        //     $user->photo = 'uploads/users_profiles/'.$newPhoto;
-        // }
 
-       // $data['password' => bcrypt($request->password);
-
-
-        // Secondly Update
-        $user->name = $request->name;
-        
+        $user->name = $request->name;    
         $user->password = bcrypt($request->password);
         $user->mobile_number = $request->mobile_number;
         $user->photo = $request->photo;
