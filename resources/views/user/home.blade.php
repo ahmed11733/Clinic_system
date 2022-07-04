@@ -63,12 +63,15 @@
                             book a doctor
                         </h5>
                     </li>
+{{-- 
                     <li class="nav-item w-50 text-center" role="presentation">
                         <h5 class="text-capitalize fs-4 nav-link py-3" id="call-tab" data-bs-toggle="tab"
                             data-bs-target="#call" type="button" role="tab" aria-controls="call" aria-selected="false">
                             call doctor
                         </h5>
-                    </li>
+                    </li> --}}
+
+
                 </ul>
                 <div class="tab-content mt-3">
 
@@ -129,7 +132,7 @@
                     </div>
 
                     <!-- form call a doctor -->
-                    <div class="tab-pane" id="call" role="tabpanel" aria-labelledby="call-tab">
+                    {{-- <div class="tab-pane" id="call" role="tabpanel" aria-labelledby="call-tab">
                         <form action="" class="row gx-1 gy-2 mb-3">
                             <div class="col-12 col-sm-6 col-md">
                                 <div class="form-floating">
@@ -150,7 +153,9 @@
                                 <button class="btn btn-primary btn-lg w-100 h-100">search</button>
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
+
+
                 </div>
             </div>
         </div>
@@ -179,12 +184,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+
+                {{-- <div class="col-sm-6">
                     <div class="card shadow-sm">
                         <div class="row g-0">
                             <div class="col-12 col-lg-5">
                                 <img src={{asset('assets/img/person.png')}} class="img-cover rounded-start" alt="...">
                             </div>
+
+
                             <div class="col-12 col-lg-7">
                                 <div class="card-body">
                                     <h5 class="card-title h5 text-capitalize">doctor call</h5>
@@ -194,9 +202,14 @@
                                     </a>
                                 </div>
                             </div>
+
+
+
                         </div>
                     </div>
-                </div>
+                </div> --}}
+
+
                 <div class="col-sm-6">
                     <div class="card shadow-sm">
                         <div class="row g-0">
@@ -237,7 +250,7 @@
         </div>
     </section>
 
-    <section class="specialty mt-5 py-5 bg-light">
+    {{-- <section class="specialty mt-5 py-5 bg-light">
         <div class="container">
             <h2 class="text-capitalize h3">our specialty</h2>
            
@@ -277,7 +290,7 @@
                 <div class="swiper-button-prev"></div>
          </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <section class="app_phone mt-5 pt-5">

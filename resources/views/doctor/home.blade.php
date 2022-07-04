@@ -56,11 +56,13 @@
            
             <table>
                 <tr>
-                  <th>day</th>
+                  <th>Day</th>
                   <br>
-                  <th>start</th>
+                  <th>Start</th>
                   <br>
-                  <th>end</th>
+                  <th>End</th>
+                  <br>
+                  <th>Action</th>
                 <br>
                 </tr>
                
@@ -71,6 +73,17 @@
                   
                   <td> {{$item->start}}</td>
                   <td>  {{$item->end}}</td>
+
+                  <td>  
+
+                    <form action="{{url('deleteWorkingTime/'.$item->id)}}" method="post">
+
+                        @csrf
+                        <button class="btn btn-danger btn-lg w-100">Delete</button>
+                    </form>
+                    
+                </td>
+
                 
 
                 </tr>                @endforeach
@@ -88,7 +101,7 @@
                     <p class="text-2"> 
 <form action="{{url('addweek')}}" method="post">
 @csrf
-<label class="form-label label-1 text-capitalize">day</label>
+<label class="form-label label-1 text-capitalize">Day</label>
 <select name="name" id="name">
     <option value="saturday">saturday</option>
     <option value="sunday">sunday</option>
@@ -99,7 +112,7 @@
     <option value="friday">friday</option>
   
 </select>
-<label class="form-label label-1 text-capitalize">start</label>
+<label class="form-label label-1 text-capitalize">Start</label>
 <select name="start" id="start">
     <option value="1 am">1 am</option>
     <option value="2 am">2 am</option>
@@ -129,7 +142,7 @@
 {{--<input type="text"class="form-control" name="start">
  comment <input type="text"class="form-control" name="end">
 --}}
-<label class="form-label label-1 text-capitalize">end</label>
+<label class="form-label label-1 text-capitalize">End</label>
 <select name="end" id="end">
     <option value="1 am">1 am</option>
     <option value="2 am">2 am</option>

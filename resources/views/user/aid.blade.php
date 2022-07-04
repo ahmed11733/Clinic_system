@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-wihte">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="./img/logo.png" class="logo" alt="">
+                <img src={{asset('assets/img/logo.png')}} class="logo" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
                     <div class="card shadow-sm rounded-5 overflow-hidden">
                         <div class="row g-0">
                             <div class="col-12 col-lg-5 overflow-hidden">
-                                <img src="./img/person.png" class="img-cover rounded-start" alt="...">
+                                <img src=={{asset('assets/img/person.png')}} class="img-cover rounded-start" alt="...">
                             </div>
                             <div class="col-12 col-lg-7">
                                 <div class="card-body">
@@ -86,7 +86,7 @@
                     <div class="card shadow-sm rounded-5 overflow-hidden">
                         <div class="row g-0">
                             <div class="col-12 col-lg-5 overflow-hidden">
-                                <img src="./img/person.png" class="img-cover rounded-start" alt="...">
+                                <img src=={{asset('assets/img/person.png')}} class="img-cover rounded-start" alt="...">
                             </div>
                             <div class="col-12 col-lg-7">
                                 <div class="card-body">
@@ -105,7 +105,7 @@
                     <div class="card shadow-sm rounded-5 overflow-hidden">
                         <div class="row g-0">
                             <div class="col-12 col-lg-5 overflow-hidden">
-                                <img src="./img/person.png" class="img-cover rounded-start" alt="...">
+                                <img src=={{asset('assets/img/person.png')}} class="img-cover rounded-start" alt="...">
                             </div>
                             <div class="col-12 col-lg-7">
                                 <div class="card-body">

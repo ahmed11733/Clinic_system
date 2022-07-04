@@ -45,13 +45,7 @@ $name=$request->input('name');
 $data=Doctor::where('speciality', 'LIKE',"%$specialist%")->orWhere('governorate', 'LIKE',"%$governorate%")->orWhere('name', 'LIKE',"%$name%")->get();
 return view('user.searchdoctor',['data'=>$data]);
 }
-    //_____________________Register_____________________
 
-    //Register Form
-    public function userRegisterForm()
-    {
-        return view('user.registerForm');
-    }
     public function usersearch()
     {
        
@@ -87,15 +81,27 @@ return view('user.searchdoctor',['data'=>$data]);
         $data['photo']='uploads/users_profiles/'.$newPhoto ;
          }
 
-           // hnb3tha lsaaa
+          
            
         $data['gender']=$request->gender;
 
 
         $data['password']=bcrypt($data['password']);
 
-        User::create($data);
-        return view('user.home');
+ //       User::create($data);
+
+        
+        // return view('user.home');
+
+        $s=User::create($data);
+        $doctor= Doctor::all();
+        $mydoctor=  DB::select('SELECT select_doctors.patient_id, doctors.name, doctors.id,doctors.speciality ,doctors.photo FROM doctors INNER JOIN select_doctors ON select_doctors.doctor_id=doctors.id AND select_doctors.patient_id='.$s->id);
+
+        return view('user.home',[
+            'doctor'=>$doctor,
+            's'=>$mydoctor
+        ]);
+
     }
 
 
@@ -216,9 +222,9 @@ return redirect('doctorProfile');
             'email'                 => 'required|email',
             
         ]);
-$s=User::find($id);
+        $s=User::find($id);
             
-$s->update($data);
+        $s->update($data);
         return view('user.home');
 
 /*

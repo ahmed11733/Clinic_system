@@ -143,7 +143,7 @@ class drapicontroller extends Controller
 
 
     public function showTreatments(){
-        $treatments = DB::select('SELECT treatments.treatment_content , treatments.treatment_date FROM treatments WHERE treatments.doctor_id='.Auth::guard('doc_api')->user()->id);
+        $treatments = DB::select('SELECT treatments.treatment_content , treatments.patient_id , treatments.treatment_date FROM treatments WHERE treatments.doctor_id='.Auth::guard('doc_api')->user()->id);
 
         return response()->json([
             'treatments' => $treatments ,

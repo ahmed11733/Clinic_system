@@ -7,7 +7,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-wihte">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <img src="./img/logo.png" class="logo" alt="">
+        <img src={{asset('assets/img/logo.png')}} class="logo" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,62 +53,6 @@
         <p class="fs-5"><span class="text-primary">1000</span> doctors and <span class="text-primary">150</span>
           specialist</p>
       </div>
-        <!-- card and form search doctor -->
-      <div class="card shadow-sm p-4 rounded-5">
-        <h6 class="h6 mb-2 text-capitalize">search a doctor</h6>
-        <form action="" class="row gx-1 gy-2 pb-1">
-          <div class="col-12 col-sm-6 col-md">
-            <div class="form-floating">
-              <select class="form-select" id="floatingSelect">
-                <option selected>Open select</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <label for="floatingInput">specialty </label>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md">
-            <div class="form-floating">
-              <input class="form-control" list="city" placeholder="area">
-              <datalist id="area">
-                <option value="San Francisco">
-                <option value="New York">
-                <option value="Seattle">
-                <option value="Los Angeles">
-                <option value="Chicago">
-              </datalist>
-              <label for="floatingInput">choose area</label>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md">
-            <div class="form-floating">
-              <input class="form-control" list="city" placeholder="city">
-              <datalist id="city">
-                <option value="San Francisco">
-                <option value="New York">
-                <option value="Seattle">
-                <option value="Los Angeles">
-                <option value="Chicago">
-              </datalist>
-              <label for="floatingInput">choose city</label>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md">
-            <div class="form-floating">
-              <input type="text" class="form-control" placeholder="doctor name">
-              <label>doctor name</label>
-            </div>
-          </div>
-          <div class="col-12 col-md-2">
-            <button class="btn btn-primary btn-lg w-100 h-100">search</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </header>
 
 
   <section class="main py-4 overflow-visible">
@@ -197,9 +141,8 @@
    @foreach ($data as $item)
                   <div class="ms-2">
               
-                {{$item->mobile_number}}
                     <h6 class="mb-0 fs-5 text-capitalize">{{$item->name}}</h6>
-                    <small class="mb-0"> {{$item->governorate}}</small>
+                    <small class="mb-0"> </small>
                   </div>
                 </div>
                 <p class="text-1 mt-3"> </p>
@@ -216,7 +159,7 @@
                     <span class="fs-5 me-2">
                       <i class="fa-solid fa-map-location"></i>
                     </span>
-                    El-Maadi : tarek abo alnoor
+                    {{$item->governorate}}
                   </li>
                   <li class="d-flex align-items-center mb-3">
                     <span class="fs-5 me-2">
@@ -229,9 +172,9 @@
                     </span>
                     {{$item->mobile_number}}                  </li>
                 </ul>
-              </div>
-            
-               @endforeach 
+
+
+                 
               <!-- choose time -->
               <div class="col-md-12 col-lg-5 d-flex align-items-center">
                 <div class="swiper time py-5">
@@ -264,6 +207,18 @@
                   <div class="swiper-button-prev"></div>
                 </div>
               </div>
+
+
+
+
+              </div>
+
+             
+              <h1>___________________</h1>
+               @endforeach 
+
+
+
             </div>
           </div>
         </div>
@@ -361,7 +316,7 @@
       <div class="modal-content overflow-hidden">
         <div class="modal-header">
           <div class="modal-title">
-            <img src="./img/logo.png" alt="" class="logo">
+            <img src={{asset('assets/img/logo.png')}} alt="" class="logo">
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -426,7 +381,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 mt-4">
-          <img src="./img/logo.png" class="logo" alt="">
+          <img src={{asset('assets/img/logo.png')}} class="logo" alt="">
           <p class="mt-3">Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
         </div>
         <div class="col-md-2 mt-4">

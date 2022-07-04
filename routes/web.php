@@ -51,6 +51,9 @@ Route::middleware('auth:doctor')->group(function()
         Route::post('DRlogout',[drwebcontroller::class,'logout']);
         Route::get('getPatients',[drwebcontroller::class,'getPatients']);
 
+        Route::post('/deleteWorkingTime/{id}',[drwebcontroller::class,'deleteWorkingTime']);
+
+
 });
 
 
@@ -61,11 +64,11 @@ Route::middleware('auth:web')->group(function()
 
 
 
-    Route::get('userProfile',[userwebcontroller::class,'userProfile']); // Uer profile page
+    Route::get('userProfile',[userwebcontroller::class,'userProfile']); 
     Route::get('/user/editProfile/{id}',[userwebcontroller::class,'editProfile']);
     Route::post('updateProfile/{id}',[userwebcontroller::class,'updateProfile']);
     
-    Route::get('usersearch',[userwebcontroller::class,'usersearch']); // Uer profile page
+    Route::get('usersearch',[userwebcontroller::class,'usersearch']); 
 
     
     Route::get('user/doctors',[userwebcontroller::class,'showDoctors']);

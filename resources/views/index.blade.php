@@ -246,6 +246,7 @@
                   <input type="password" class="form-control" name="password" placeholder="password">
                   <label>password *</label>
                 </div>
+
                 <div class="form-floating mb-3">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="male" value="male">
@@ -371,13 +372,25 @@
                 <input type="text" class="form-control" name="mobile_number" placeholder="phone number">
                 <label>phone number *</label>
               </div>
-              <div class="form-floating mb-3">
+
+              {{-- <div class="form-floating mb-3">
                 <select name="gender" id="">
                   <option value="male">male</option>
                   <option value="fmale">fmale</option>
 
                 </select>
                
+              </div> --}}
+
+              <div class="form-floating mb-3">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                  <label class="form-check-label" for="male">male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="famale" value="famale">
+                  <label class="form-check-label" for="famale">famale</label>
+                </div>
               </div>
 
 

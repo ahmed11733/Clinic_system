@@ -64,6 +64,8 @@ class drwebcontroller extends Controller
 $data['doctor_id']=Auth::guard('doctor')->user()->id;
         WeekDays::create($data);
         return redirect('doctorHome');
+
+      
     }
 
     //Register method
@@ -104,24 +106,19 @@ $data['doctor_id']=Auth::guard('doctor')->user()->id;
 
         // If you will store photo you should save it firstly in Public
        if ( $request->photo) {
-         $file = $request->photo; // hnb3tha lsaaa
-       
-       /*  $newPhoto = time().$photo->getClientOriginalName();
-        $photo->move('uploads/doctors_profiles/', $newPhoto);
-        $data['photo']='uploads/doctors_profiles/'.$newPhoto ;
-*/
- $filename=Storage::putFile("public",$file);
- $data['photo']=$filename;
-       
-
+            $file = $request->photo; // hnb3tha lsaaa
+            $filename=Storage::putFile("public",$file);
+            $data['photo']=$filename;
   }
        
         $data['password']=bcrypt($data['password']);
 
         Doctor::create($data);
-         return view('doctor.home');
+        //  return view('doctor.home');
 
-        // return view('index');
+        $week = WeekDays::get()->where('doctor_id', Auth::guard('doctor')->user()->id);       
+
+        return view('doctor.home',['week'=>$week]);
 
     }
 
@@ -390,7 +387,7 @@ $data['doctor_id']=Auth::guard('doctor')->user()->id;
     public function deleteWorkingTime($id){
 
         $weekDays = WeekDays::find($id);
-        $weekDays->forceDelete();
+        $weekDays->delete();
         return redirect()->back();
 
 

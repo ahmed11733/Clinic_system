@@ -23,10 +23,10 @@
                         <a class="nav-link" href="{{url('/userProfile')}}">my profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./searchDoctor.html">search a doctor</a>
+                        <a class="nav-link" href="{{url('search')}}">search a doctor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./firstAid.html">first aid </a>
+                        <a class="nav-link" href="{{url('firstAid')}}">first aid </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/showMedicalHistory')}}">medical history</a>
@@ -122,7 +122,8 @@
                             <input type="text"class="form-control" name="bloodType" value="{{$item->bloodType}}">
     
                              <input type="submit" class="btn btn-success" value="edit">
-    
+
+
                             </form>  
                             @endforeach
 
@@ -142,7 +143,7 @@
 
 
                 <!--Medical history cards -->
-                <div class="row gx-2">
+                {{-- <div class="row gx-2">
                     <h3 class="fs-2 mb-0 text-capitalize mb-3">Medical history</h3>
                     <div class="col-md-6">
                         <div class="card mb-4 shadow-sm rounded-5 p-3">
@@ -188,20 +189,20 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="py-4 text-center m-auto">
+                {{-- <div class="py-4 text-center m-auto">
                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#medical_history">
                         add medical history
                     </button>
-                </div>
+                </div> --}}
 
             </div>
         </div>
     </main>
 
     <!-- Medical history modal form -->
-    <div class="modal fade" id="medical_history" tabindex="-1" aria-labelledby="medical_history" aria-hidden="true">
+    {{-- <div class="modal fade" id="medical_history" tabindex="-1" aria-labelledby="medical_history" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content overflow-hidden">
                 <div class="modal-header">
@@ -241,7 +242,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <!-- register doctor modal -->
