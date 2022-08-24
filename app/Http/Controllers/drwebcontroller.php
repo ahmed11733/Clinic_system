@@ -24,11 +24,7 @@ class drwebcontroller extends Controller
 }
 
                 //_____________________Login_____________________
-    //Login Form
-    public function doctorLoginForm()
-    {
-        return view('doctor.loginForm');
-    }
+    
 
     //Login method
     public function doctorLogin(Request $request)
@@ -46,12 +42,6 @@ class drwebcontroller extends Controller
 
                 //_____________________Register_____________________
 
-    //Register Form
-    public function doctorRegisterForm()
-    {
-        return view('doctor.registerForm');
-    }
-
     public function addweek(Request $request)
     {
         $data= $request->validate
@@ -61,7 +51,7 @@ class drwebcontroller extends Controller
         'end' =>'required',
         'doctor_id'
         ]);
-$data['doctor_id']=Auth::guard('doctor')->user()->id;
+    $data['doctor_id']=Auth::guard('doctor')->user()->id;
         WeekDays::create($data);
         return redirect('doctorHome');
 
@@ -83,14 +73,7 @@ $data['doctor_id']=Auth::guard('doctor')->user()->id;
 
 
             'mobile_number'         => 'required|string', 
-            'photo'             ,         
-
-            // 'chinicPhoto1'          => 'required',
-            // 'chinicPhoto2'          => 'required',
-            // 'chinicPhoto3'          => 'required',
-
-            // 'chinicBill1'           => 'required',
-            // 'chinicBill2'           => 'required',
+            'photo'             ,
 
             'latitude'              => 'required', 
             'longitude'             => 'required',  
@@ -113,10 +96,10 @@ $data['doctor_id']=Auth::guard('doctor')->user()->id;
        
         $data['password']=bcrypt($data['password']);
 
-        Doctor::create($data);
-        //  return view('doctor.home');
+        $x = Doctor::create($data);
 
-        $week = WeekDays::get()->where('doctor_id', Auth::guard('doctor')->user()->id);       
+        $week = WeekDays::get()->where('doctor_id', $x->id);       
+
 
         return view('doctor.home',['week'=>$week]);
 
